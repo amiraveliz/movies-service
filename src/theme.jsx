@@ -19,10 +19,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   @font-face {
-      font-family: 'Bebas Neue';
-      src: url(${BebasNeue700}) format('woff');
-      font-weight: 700;
-      font-style: normal;
+    font-family: 'Bebas Neue';
+    src: url(${BebasNeue700}) format('woff');
+    font-weight: 700;
+    font-style: normal;
   }
 
   html, body {
