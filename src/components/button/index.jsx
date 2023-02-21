@@ -6,7 +6,7 @@ import {
   StyledTransparent,
 } from './styles';
 
-function Button({ text, variant, icon: Icon }) {
+function Button({ text, variant, icon: Icon, iconEnd }) {
   let StyledButton;
   switch (variant) {
     case 'secondary':
@@ -24,25 +24,33 @@ function Button({ text, variant, icon: Icon }) {
   }
   return (
     <StyledButton>
-      {Icon && (
+      {Icon && !iconEnd && (
         <>
           <Icon />
           &nbsp;
         </>
       )}
       {text}
+      {Icon && iconEnd && (
+        <>
+          &nbsp;
+          <Icon />
+        </>
+      )}
     </StyledButton>
   );
 }
 
 Button.propTypes = {
   icon: PropTypes.elementType,
+  iconEnd: PropTypes.bool,
   text: PropTypes.string,
   variant: PropTypes.string,
 };
 
 Button.defaultProps = {
   icon: null,
+  iconEnd: false,
   text: '',
   variant: 'primary',
 };

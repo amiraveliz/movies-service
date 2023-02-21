@@ -2,12 +2,13 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import StyledContainer from './styles';
 
-import { getFeaturedMovie } from '../../slices/movies';
+import { getFeaturedMovie, getPopularMovies } from '../../slices/movies';
 import Loader from '../../components/loader/index';
 import FeaturedDetails from './featured-details';
+import PopularMovies from './popular-movies';
 
 function Home() {
-  // const popularMovies = useSelector((state) => state.movies.popularMovies);
+  const popularMovies = useSelector((state) => state.movies.popularMovies);
   const { title, backdropFullPath: backgroundImage } = useSelector(
     (state) => state.movies.featuredMovie
   );
@@ -15,7 +16,7 @@ function Home() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // dispatch(getPopularMovies());
+    dispatch(getPopularMovies());
     dispatch(getFeaturedMovie());
   }, [dispatch]);
 
@@ -26,6 +27,7 @@ function Home() {
   return (
     <StyledContainer backgroundImage={backgroundImage}>
       <FeaturedDetails title={title} />
+      <PopularMovies movies={popularMovies} />
     </StyledContainer>
   );
 }

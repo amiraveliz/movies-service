@@ -3,6 +3,10 @@ import styled from 'styled-components';
 export const StyledContainer = styled.div`
   padding: 0 60px;
   max-width: 943px;
+  grid-area: 1 / 1 / 3 / 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 `;
 
 export const StyledSubtitle = styled.div`

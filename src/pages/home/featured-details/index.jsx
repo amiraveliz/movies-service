@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import { ReactComponent as Play } from '../../../assets/images/icons/play.svg';
 import { ReactComponent as Plus } from '../../../assets/images/icons/plus.svg';
 import Button from '../../../components/button/index';
-import PropTypes from 'prop-types';
+
 import {
   StyledContainer,
   StyledActions,
@@ -24,11 +25,11 @@ function FeaturedDetails({ title }) {
   );
 }
 
-Button.propTypes = {
+FeaturedDetails.propTypes = {
   title: PropTypes.string,
 };
 
-Button.defaultProps = {
+FeaturedDetails.defaultProps = {
   title: '',
 };
 

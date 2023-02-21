@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import MoviesService from '../services/MoviesService';
 
 const IMAGES_BASE_URL = 'https://image.tmdb.org/t/p/original';
+const IMAGES_BASE_URL_500 = 'https://image.tmdb.org/t/p/w500';
 
 export const getPopularMovies = createAsyncThunk(
   'movies/getPopular',
@@ -46,8 +47,12 @@ export const moviesSlice = createSlice({
       state.isLoading = true;
     },
     [getPopularMovies.fulfilled](state, { payload }) {
-      state.isLoading = false;
+      payload = payload.slice(0, 4).map((movie) => {
+        movie.backdrop500FullPath = `${IMAGES_BASE_URL_500}/${movie.backdrop_path}`;
+        return movie;
+      }); // only show first 4 items
       state.popularMovies = payload;
+      state.isLoading = false;
     },
     [getPopularMovies.rejected](state) {
       state.isLoading = false;
