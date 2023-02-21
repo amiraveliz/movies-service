@@ -1,6 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import MoviesService from '../services/MoviesService';
 
+const IMAGES_BASE_URL = 'https://image.tmdb.org/t/p/original';
+
 export const getPopularMovies = createAsyncThunk(
   'movies/getPopular',
   async () => {
@@ -17,7 +19,7 @@ export const getFeaturedMovie = createAsyncThunk(
     const {
       data: { results },
     } = await MoviesService.getFeatured();
-    return results;
+    return results[0]; // get only first movie
   }
 );
 
@@ -54,6 +56,8 @@ export const moviesSlice = createSlice({
       state.isLoading = true;
     },
     [getFeaturedMovie.fulfilled](state, { payload }) {
+      const backdropFullPath = `${IMAGES_BASE_URL}/${payload.backdrop_path}`;
+      payload = { ...payload, backdropFullPath };
       state.featuredMovie = payload;
       state.isLoading = false;
     },

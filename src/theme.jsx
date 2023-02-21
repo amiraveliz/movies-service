@@ -35,6 +35,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: 'Bebas Neue', sans-serif;
     font-weight: 400;
+    letter-spacing: 4px;
     color: ${(props) => props.theme.text};
     background-color: ${(props) => props.theme.background};
   }
