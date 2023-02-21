@@ -8,6 +8,7 @@ export const StyledTitle = styled.span`
   padding-top: 95px;
   max-width: 160px;
   margin: 0 auto;
+  transition: all 100ms ease-in-out;
 `;
 
 export const StyledRate = styled.span`

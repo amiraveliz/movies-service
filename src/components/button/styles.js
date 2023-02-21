@@ -22,9 +22,11 @@ export const StyledPrimary = styled.button`
 
 export const StyledSecondary = styled.button`
   ${commonButtonStyles}
-  background-color: ${(props) => props.theme.text};
+  background-color: ${(props) =>
+    props.disabled ? props.theme.disabled : props.theme.text};
   color: ${(props) => props.theme.background};
   border: none;
+  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
 `;
 
 export const StyledOutlined = styled.button`

@@ -6,7 +6,7 @@ import {
   StyledTransparent,
 } from './styles';
 
-function Button({ text, variant, icon: Icon, iconEnd }) {
+function Button({ text, variant, icon: Icon, iconEnd, onClick, disabled }) {
   let StyledButton;
   switch (variant) {
     case 'secondary':
@@ -22,8 +22,9 @@ function Button({ text, variant, icon: Icon, iconEnd }) {
       StyledButton = StyledPrimary; // set primary as default
       break;
   }
+
   return (
-    <StyledButton>
+    <StyledButton onClick={onClick} disabled={disabled}>
       {Icon && !iconEnd && (
         <>
           <Icon />
@@ -46,6 +47,8 @@ Button.propTypes = {
   iconEnd: PropTypes.bool,
   text: PropTypes.string,
   variant: PropTypes.string,
+  onClick: PropTypes.func,
+  disabled: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -53,6 +56,8 @@ Button.defaultProps = {
   iconEnd: false,
   text: '',
   variant: 'primary',
+  onClick: () => {},
+  disabled: false,
 };
 
 export default Button;
