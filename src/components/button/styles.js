@@ -9,7 +9,7 @@ const commonButtonStyles = css`
   cursor: pointer;
   letter-spacing: inherit;
   &:hover {
-    opacity: 0.9;
+    opacity: 0.8;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
   }
 `;

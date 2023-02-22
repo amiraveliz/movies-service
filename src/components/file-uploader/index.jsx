@@ -53,62 +53,65 @@ function FileUploader({
     );
   } else {
     uploadContent = (
-      <Dropzone onDrop={onDrop} multiple={false}>
-        {({ getRootProps, getInputProps }) => (
-          <StyledContainer>
-            {!inProgress && !uploadError && (
-              <StyledDrandAndDropZone
-                {...getRootProps({ className: 'dropzone' })}
-              >
-                <input {...getInputProps()} />
-                {currentFile && currentFile.name ? (
-                  <div>{currentFile && currentFile.name}</div>
-                ) : (
-                  <StyledDragAndDropDetails>
-                    <Clip />
-                    &nbsp; Agregá un archivo o arrastralo y soltalo aquí
-                  </StyledDragAndDropDetails>
-                )}
-              </StyledDrandAndDropZone>
-            )}
-
-            <Input
-              placeholder="TÍTULO"
-              onChange={onChangeFileName}
-              value={fileName}
-              disabled={inProgress || uploadError}
-            />
-            <StyledSubmitButton>
-              <Button
-                text="subir película"
-                variant="secondary"
-                disabled={!currentFile || !fileName || inProgress}
-                onClick={onSubmit}
-              />
-            </StyledSubmitButton>
-          </StyledContainer>
+      <div>
+        {inProgress && (
+          <ProgressBar
+            width="602px"
+            value={progress}
+            max={100}
+            type="success"
+          />
         )}
-      </Dropzone>
+        {uploadError && (
+          <ProgressBar
+            width="602px"
+            value={100}
+            max={100}
+            type="failure"
+            onRetry={onSubmit}
+          />
+        )}
+        <Dropzone onDrop={onDrop} multiple={false}>
+          {({ getRootProps, getInputProps }) => (
+            <StyledContainer>
+              {!inProgress && !uploadError && (
+                <StyledDrandAndDropZone
+                  {...getRootProps({ className: 'dropzone' })}
+                >
+                  <input {...getInputProps()} />
+                  {currentFile?.name ? (
+                    <div>{currentFile.name}</div>
+                  ) : (
+                    <StyledDragAndDropDetails>
+                      <Clip />
+                      &nbsp; Agregá un archivo o arrastralo y soltalo aquí
+                    </StyledDragAndDropDetails>
+                  )}
+                </StyledDrandAndDropZone>
+              )}
+
+              <Input
+                placeholder="TÍTULO"
+                onChange={onChangeFileName}
+                value={fileName}
+                disabled={inProgress || uploadError}
+              />
+              <StyledSubmitButton>
+                <Button
+                  text="subir película"
+                  variant="secondary"
+                  disabled={!currentFile || !fileName || inProgress}
+                  onClick={onSubmit}
+                />
+              </StyledSubmitButton>
+            </StyledContainer>
+          )}
+        </Dropzone>
+      </div>
     );
   }
 
-  return (
-    <div>
-      {inProgress && !showSuccess && (
-        <ProgressBar width="602px" value={progress} max={100} type="success" />
-      )}
-      {uploadError && (
-        <ProgressBar
-          width="602px"
-          value={100}
-          max={100}
-          type="failure"
-          onRetry={onSubmit}
-        />
-      )}
-      {uploadContent}
-    </div>
-  );
+  return <div>{uploadContent}</div>;
 }
 
 FileUploader.propTypes = {

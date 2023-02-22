@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
-import Button from '../../../components/button';
 import { StyledContainer, StyledTitle, StyledList } from './styles';
-import { ReactComponent as Arrow } from '../../../assets/images/icons/arrow.svg';
 import MovieCard from '../../../components/movie-card';
+import Dropdown from '../../../components/dropdown';
 
 function PopularList({ movies }) {
   return (
@@ -10,7 +9,13 @@ function PopularList({ movies }) {
       <div>
         <StyledTitle>
           Ver:&nbsp;
-          <Button text="Populares" icon={Arrow} iconEnd variant="transparent" />
+          <Dropdown
+            options={[
+              { id: 'popular', label: 'Populares' },
+              { id: 'myList', label: 'Mi lista' },
+            ]}
+            defaultOption={{ id: 'popular', label: 'Populares' }}
+          />
         </StyledTitle>
         <StyledList>
           {movies.map((movie) => {

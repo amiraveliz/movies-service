@@ -37,7 +37,7 @@ ProgressBar.propTypes = {
   value: PropTypes.number.isRequired,
   max: PropTypes.number,
   width: PropTypes.string,
-  type: PropTypes.oneOf('success', 'failure'),
+  type: PropTypes.oneOf(['success', 'failure']),
   onRetry: PropTypes.func,
 };
 
