@@ -6,10 +6,12 @@ const StyledInput = styled.input`
   letter-spacing: inherit;
   padding: 10px;
   margin: 10px;
+  color: ${(props) => props.theme.text};
   background: ${(props) => props.theme.background};
   border: none;
   border-bottom: ${(props) => `1px solid ${props.theme.text}`};
   width: 248px;
+  text-align: center;
   ::placeholder {
     color: ${(props) => props.theme.text};
     text-align: center;

@@ -45,6 +45,11 @@ const initialState = {
 export const moviesSlice = createSlice({
   name: 'movies',
   initialState,
+  reducers: {
+    clearUploadError: (state) => {
+      state.uploadError = false;
+    },
+  },
   extraReducers: {
     [getPopularMovies.pending](state) {
       state.isLoading = true;
@@ -85,5 +90,7 @@ export const moviesSlice = createSlice({
     },
   },
 });
+
+export const { clearUploadError } = moviesSlice.actions;
 
 export default moviesSlice.reducer;

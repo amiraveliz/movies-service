@@ -13,18 +13,31 @@ import { ReactComponent as Bell } from '../../assets/images/icons/bell.svg';
 import Profile from '../../assets/images/profile.svg';
 import Modal from '../modal';
 import FileUploader from '../file-uploader';
-import { uploadNewMovie } from '../../slices/movies';
+import { clearUploadError, uploadNewMovie } from '../../slices/movies';
 
 function Header() {
   const [showAddMovieModal, setShowAddMovieModal] = useState(false);
   const [currentFile, setCurrentFile] = useState(undefined);
   const [progress, setProgress] = useState(undefined);
+  const [fileName, setFileName] = useState('');
   const dispatch = useDispatch();
 
-  const toggleShowAddMovieModal = () =>
+  const handleClearUploadValues = () => {
+    setCurrentFile(undefined);
+    setProgress(undefined);
+    setFileName('');
+  };
+
+  const toggleShowAddMovieModal = () => {
+    if (showAddMovieModal) {
+      handleClearUploadValues();
+      dispatch(clearUploadError());
+    }
     setShowAddMovieModal(!showAddMovieModal);
+  };
 
   const handleAddNewMyMovie = () => {
+    dispatch(clearUploadError());
     setProgress(0);
 
     const onUploadProgress = (event) => {
@@ -35,21 +48,22 @@ function Header() {
       uploadNewMovie({
         file: currentFile,
         onUploadProgress,
-        fileName: 'testing file name',
+        fileName,
       })
-    )
-      .then(() => {
-        setCurrentFile(undefined);
-      })
-      .catch(() => {
-        setProgress(undefined);
-        setCurrentFile(undefined);
-      });
+    ).finally(() => {
+      handleClearUploadValues();
+    });
   };
 
   const handleOnDropFile = (files) => {
     setCurrentFile(files[0]);
   };
+
+  const handleChangeName = ({ target: { value } }) => {
+    setFileName(value);
+  };
+
+  const handleCancelUpload = () => toggleShowAddMovieModal();
 
   return (
     <StyledContainer>
@@ -75,8 +89,11 @@ function Header() {
         <FileUploader
           currentFile={currentFile}
           progress={progress}
+          fileName={fileName}
           onSubmit={handleAddNewMyMovie}
           onDrop={handleOnDropFile}
+          onChangeFileName={handleChangeName}
+          onCancel={handleCancelUpload}
         />
       </Modal>
     </StyledContainer>

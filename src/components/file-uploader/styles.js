@@ -27,3 +27,15 @@ export const StyledDragAndDropDetails = styled.span`
 export const StyledSubmitButton = styled.div`
   margin-top: 48px;
 `;
+
+export const StyledSuccessTitle = styled.span`
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 70px;
+  margin-bottom: 24px;
+`;
+
+export const StyledSuccessSubtitle = styled.span`
+  font-size: 20px;
+  margin-bottom: 92px;
+`;
