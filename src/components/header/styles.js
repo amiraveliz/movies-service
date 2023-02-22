@@ -25,10 +25,3 @@ export const StyledMenuSection = styled.div`
   align-items: center;
   height: fit-content;
 `;
-
-export const StyledModalBody = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;

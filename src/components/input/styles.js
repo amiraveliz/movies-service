@@ -18,6 +18,7 @@ const StyledInput = styled.input`
     outline: none;
   }
   caret-color: ${(props) => props.theme.text};
+  box-sizing: border-box;
 `;
 
 export default StyledInput;

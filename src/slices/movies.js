@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import MoviesService from '../services/MoviesService';
+import MoviesService from '../services/movies-service';
 
 const IMAGES_BASE_URL = 'https://image.tmdb.org/t/p/original';
 const IMAGES_BASE_URL_500 = 'https://image.tmdb.org/t/p/w500';
@@ -24,24 +24,27 @@ export const getFeaturedMovie = createAsyncThunk(
   }
 );
 
+export const uploadNewMovie = createAsyncThunk(
+  'movies/uploadNewMovie',
+  async ({ file, onUploadProgress, fileName }) => {
+    const {
+      data: { url, asset_id: id },
+    } = await MoviesService.uploadFile(file, onUploadProgress);
+    return { url, fileName, id };
+  }
+);
+
 const initialState = {
   popularMovies: [],
-  myMovies: [],
+  myMovies: JSON.parse(localStorage.getItem('myMovies') || '[]'),
   featuredMovie: {},
   isLoading: false,
+  uploadError: false,
 };
 
 export const moviesSlice = createSlice({
   name: 'movies',
   initialState,
-  reducers: {
-    addPopular: (state, { payload }) => {
-      const newMovie = {
-        name: payload.text,
-      };
-      state.myMovies.push(newMovie);
-    },
-  },
   extraReducers: {
     [getPopularMovies.pending](state) {
       state.isLoading = true;
@@ -69,9 +72,18 @@ export const moviesSlice = createSlice({
     [getFeaturedMovie.rejected](state) {
       state.isLoading = false;
     },
+    [getFeaturedMovie.pending](state) {
+      state.uploadError = false;
+    },
+    [uploadNewMovie.fulfilled](state, { payload }) {
+      state.myMovies.push(payload);
+      state.uploadError = false;
+      localStorage.setItem('myMovies', JSON.stringify(state.myMovies));
+    },
+    [uploadNewMovie.rejected](state) {
+      state.uploadError = true;
+    },
   },
 });
-
-export const { addTask, toggleTask } = moviesSlice.actions;
 
 export default moviesSlice.reducer;

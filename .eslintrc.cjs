@@ -19,5 +19,7 @@ module.exports = {
     'react/react-in-jsx-scope': 0,
     'react/jsx-no-constructed-context-values': 0,
     'no-param-reassign': 0,
+    'react/jsx-props-no-spreading': 0,
+    'react/forbid-prop-types': 0,
   },
 };
