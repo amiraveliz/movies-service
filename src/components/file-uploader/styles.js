@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Breakpoints from '../../global-styles/breakpoints';
 
 export const StyledContainer = styled.div`
   display: flex;
@@ -18,10 +19,17 @@ export const StyledDrandAndDropZone = styled.div`
   outline: none;
   height: 100px;
   width: 602px;
+  @media (max-width: ${Breakpoints.screenMd}) {
+    width: 350;
+    padding: 16px;
+  }
 `;
 
 export const StyledDragAndDropDetails = styled.span`
   cursor: default;
+  @media (max-width: ${Breakpoints.screenXs}) {
+    line-height: 1.5;
+  }
 `;
 
 export const StyledSubmitButton = styled.div`

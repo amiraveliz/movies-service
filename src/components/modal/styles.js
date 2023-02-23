@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import Breakpoints from '../../global-styles/breakpoints';
 
-export const StyledModal = styled.span`
+export const StyledModal = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +24,7 @@ export const StyledOverlay = styled.span`
   width: 100vw;
 `;
 
-export const StyledContainer = styled.span`
+export const StyledContainer = styled.div`
   display: flex;
   padding: 1.5rem;
   position: relative;
@@ -38,9 +39,16 @@ export const StyledContainer = styled.span`
   border-radius: 10px;
   z-index: 999;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  @media (max-width: ${Breakpoints.screenMd}) {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    margin-top: 220px;
+  }
 `;
 
-export const StyledHeader = styled.span`
+export const StyledHeader = styled.div`
   width: 100%;
   h2 {
     font-weight: 700;
@@ -56,4 +64,15 @@ export const StyledCloseButton = styled.div`
   justify-content: end;
   width: 100%;
   height: 2.81rem;
+  @media (max-width: ${Breakpoints.screenMd}) {
+    display: none;
+  }
+`;
+
+export const StyledCancelButton = styled.div`
+  display: none;
+  @media (max-width: ${Breakpoints.screenMd}) {
+    display: block;
+    margin-top: 16px;
+  }
 `;

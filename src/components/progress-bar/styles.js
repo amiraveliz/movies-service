@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Breakpoints from '../../global-styles/breakpoints';
 
 export const StyledContainer = styled.div`
   display: flex;
@@ -7,9 +8,11 @@ export const StyledContainer = styled.div`
 
   progress[value] {
     width: ${(props) => `${props.width}px`};
-
     -webkit-appearance: none;
     appearance: none;
+    @media (max-width: ${Breakpoints.screenSm}) {
+      width: 350px;
+    }
   }
 
   progress[value]::-webkit-progress-bar {

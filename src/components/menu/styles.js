@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Breakpoints from '../../global-styles/breakpoints';
 
 export const StyledMenu = styled.nav`
   display: flex;
@@ -9,17 +10,19 @@ export const StyledMenu = styled.nav`
   transform: ${({ isOpen }) => (isOpen ? 'translateX(0)' : 'translateX(100%)')};
   height: 100vh;
   text-align: left;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
+  bottom: 0;
   transition: all 0.3s ease-in-out;
   z-index: 2;
   width: 761px;
   padding: 137px 108px 0 88px;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 
-  @media (max-width: 776px) {
+  @media (max-width: ${Breakpoints.screenMd}) {
     width: 100%;
+    padding: 114px 24px 24px 24px;
   }
 
   div {
@@ -50,4 +53,23 @@ export const StyledOptions = styled.section`
   top: 15px;
   right: 60px;
   width: 106px;
+
+  @media (max-width: ${Breakpoints.screenMd}) {
+    width: 65px;
+    right: 0;
+    button {
+      display: none;
+    }
+  }
+`;
+
+export const StyledLogoContainer = styled.div`
+  display: none;
+  @media (max-width: ${Breakpoints.screenMd}) {
+    display: block;
+    position: absolute;
+    top: 38px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 `;

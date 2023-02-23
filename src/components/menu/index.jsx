@@ -1,13 +1,17 @@
 import PropTypes from 'prop-types';
-import { StyledMenu, StyledOptions } from './styles';
+import { StyledMenu, StyledOptions, StyledLogoContainer } from './styles';
 import { ReactComponent as Plus } from '../../assets/images/icons/plus.svg';
 import { ReactComponent as Bell } from '../../assets/images/icons/bell.svg';
+import { ReactComponent as Logo } from '../../assets/images/icons/logo.svg';
 import Profile from '../../assets/images/profile.svg';
 import Button from '../button';
 
 function Menu({ isOpen, onClickAddMovie }) {
   return (
     <StyledMenu isOpen={isOpen}>
+      <StyledLogoContainer>
+        <Logo />
+      </StyledLogoContainer>
       <StyledOptions>
         <Button variant="transparent" icon={Bell} />
         <img src={Profile} alt="Profile avatar" width="42" height="42" />

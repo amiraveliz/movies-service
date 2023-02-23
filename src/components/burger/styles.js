@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Breakpoints from '../../global-styles/breakpoints';
 
 const StyledBurger = styled.button`
   position: ${({ open }) => (open ? 'absolute' : 'relative')};
@@ -45,6 +46,13 @@ const StyledBurger = styled.button`
       transform: ${({ open }) => (open ? 'rotate(314deg)' : 'rotate(0)')};
       width: ${({ open }) => (open ? '24px' : '17px')};
     }
+  }
+
+  @media (max-width: ${Breakpoints.screenMd}) {
+    left: 28px;
+    right: initial;
+    position: fixed;
+    top: 30px;
   }
 `;
 

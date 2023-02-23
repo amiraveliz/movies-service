@@ -8,6 +8,7 @@ import {
   StyledModal,
   StyledOverlay,
   StyledCloseButton,
+  StyledCancelButton,
 } from './styles';
 
 function Modal({ title, visible = false, onShown, onHiding, children }) {
@@ -32,6 +33,9 @@ function Modal({ title, visible = false, onShown, onHiding, children }) {
           <h2>{title}</h2>
         </StyledHeader>
         {children}
+        <StyledCancelButton>
+          <Button variant="secondary" onClick={handleOnHiding} text="Cancel" />
+        </StyledCancelButton>
       </StyledContainer>
     </StyledModal>
   );

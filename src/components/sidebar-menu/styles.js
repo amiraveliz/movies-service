@@ -22,7 +22,7 @@ export const StyledOverlay = styled.span`
 export const StyledMenuSection = styled.div`
   gap: 40px;
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   height: fit-content;
 `;
 
