@@ -28,6 +28,15 @@ export const StyledTitle = styled.div`
   color: ${(props) => props.theme.primary};
   letter-spacing: 16px;
   margin-bottom: 32px;
+  animation: slide-up 6s forwards;
+  @keyframes slide-up {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
   @media (max-width: ${Breakpoints.screenMd}) {
     text-align: center;
   }
@@ -36,7 +45,7 @@ export const StyledTitle = styled.div`
 export const StyledActions = styled.div`
   display: flex;
   gap: 24px;
-  padding-bottom: 120px;
+  padding-bottom: 60px;
   @media (max-width: ${Breakpoints.screenMd}) {
     padding-bottom: 0;
     flex-direction: column;

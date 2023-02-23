@@ -12,6 +12,7 @@ const StyledContainer = styled.div`
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  animation: fade-in-featured 4s forwards ease-in-out;
   @media (max-width: ${Breakpoints.screenMd}) {
     display: flex;
     flex-direction: column;
@@ -25,6 +26,20 @@ const StyledContainer = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     height: 95%;
+  }
+
+  @keyframes fade-in-featured {
+    0% {
+      opacity: 0;
+      transform: scale(1.5);
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 `;
 

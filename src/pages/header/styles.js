@@ -9,6 +9,7 @@ export const StyledContainer = styled.header`
   padding: 15px 60px;
   box-sizing: border-box;
   top: 0;
+  z-index: 1;
   @media (max-width: ${Breakpoints.screenMd}) {
     padding: 15px 24px;
   }

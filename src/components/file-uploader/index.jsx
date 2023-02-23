@@ -54,7 +54,7 @@ function FileUploader({
   } else {
     uploadContent = (
       <div>
-        {inProgress && (
+        {inProgress && !uploadError && (
           <ProgressBar width={602} value={progress} max={100} type="success" />
         )}
         {uploadError && (

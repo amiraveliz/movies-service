@@ -20,8 +20,9 @@ export const StyledDrandAndDropZone = styled.div`
   height: 100px;
   width: 602px;
   @media (max-width: ${Breakpoints.screenMd}) {
-    width: 350;
+    width: 350px;
     padding: 16px;
+    line-height: 1.5rem;
   }
 `;
 

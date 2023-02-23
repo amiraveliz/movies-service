@@ -18,6 +18,15 @@ export const StyledPrimary = styled.button`
   ${commonButtonStyles}
   background-color: ${(props) => props.theme.background};
   border: none;
+  animation: swipe-animation 6s forwards ease-in-out;
+  @keyframes swipe-animation {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
 `;
 
 export const StyledSecondary = styled.button`
@@ -33,6 +42,15 @@ export const StyledOutlined = styled.button`
   ${commonButtonStyles}
   background-color: rgba(36, 36, 36, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.5);
+  animation: swipe-animation 6s forwards ease-in-out;
+  @keyframes swipe-animation {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
 `;
 
 export const StyledTransparent = styled.button`

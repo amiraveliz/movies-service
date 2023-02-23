@@ -69,6 +69,21 @@ export const StyledCard = styled.div`
   background-size: cover;
   margin: 8px;
   transition: all 1s ease-in-out;
+  animation: fade-in-slide-up 5s forwards ease-in-out;
+
+  @keyframes fade-in-slide-up {
+    0% {
+      opacity: 0;
+      transform: translateY(60px);
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
   &:hover {
     background-image: linear-gradient(
