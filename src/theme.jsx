@@ -26,14 +26,14 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
   }
 
-  html, body {
-    height: 100%;
+  * {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 
   body {
-    min-height: 100%;
-    padding: 0;
+    min-height: 100vh;
     font-family: 'Bebas Neue', sans-serif;
     font-weight: 400;
     letter-spacing: 4px;
@@ -42,7 +42,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #root {
-    height: inherit;
+    height: 100vh;
   }
 `;
 

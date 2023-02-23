@@ -46,7 +46,7 @@ function FileUploader({
       <StyledContainer>
         <StyledSuccessTitle>¡Felicitaciones!</StyledSuccessTitle>
         <StyledSuccessSubtitle>
-          {fileName} The Movie fue correctamente subida.
+          {fileName} fue correctamente subida.
         </StyledSuccessSubtitle>
         <Button text="ir a home" variant="secondary" onClick={onCancel} />
       </StyledContainer>

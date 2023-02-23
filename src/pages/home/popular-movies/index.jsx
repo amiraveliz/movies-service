@@ -1,24 +1,43 @@
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 import { StyledContainer, StyledTitle, StyledList } from './styles';
 import MovieCard from '../../../components/movie-card';
 import Dropdown from '../../../components/dropdown';
 
-function PopularList({ movies }) {
+const WATCH_OPTIONS = [
+  { id: 'popular', label: 'Populares' },
+  { id: 'myList', label: 'Mis películas' },
+];
+
+function PopularList({ popular, myMovies }) {
+  const [watchList, setWatchList] = useState(popular);
+
+  const handleUpdateWatchList = (option) => {
+    let list;
+    switch (option.id) {
+      case 'myList':
+        list = myMovies;
+        break;
+      default:
+        list = popular;
+        break;
+    }
+    setWatchList(list);
+  };
+
   return (
     <StyledContainer>
       <div>
         <StyledTitle>
           Ver:&nbsp;
           <Dropdown
-            options={[
-              { id: 'popular', label: 'Populares' },
-              { id: 'myList', label: 'Mi lista' },
-            ]}
-            defaultOption={{ id: 'popular', label: 'Populares' }}
+            options={WATCH_OPTIONS}
+            defaultOption={WATCH_OPTIONS[0]}
+            onChange={handleUpdateWatchList}
           />
         </StyledTitle>
         <StyledList>
-          {movies.map((movie) => {
+          {watchList.map((movie) => {
             const {
               title,
               vote_average: rate,
@@ -42,11 +61,13 @@ function PopularList({ movies }) {
 }
 
 PopularList.propTypes = {
-  movies: PropTypes.arrayOf(Object),
+  popular: PropTypes.arrayOf(Object),
+  myMovies: PropTypes.arrayOf(Object),
 };
 
 PopularList.defaultProps = {
-  movies: [],
+  popular: [],
+  myMovies: [],
 };
 
 export default PopularList;

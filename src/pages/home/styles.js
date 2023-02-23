@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const StyledContainer = styled.div`
   padding-top: 100px;
   background-image: url(${(props) => props.backgroundImage});
-  height: calc(100% - 100px);
+  height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
   display: grid;

@@ -14,11 +14,13 @@ function MovieCard({ title, backgroundImage, rate, release }) {
     <StyledCard backgroundImage={backgroundImage}>
       <StyledTitle>{title}</StyledTitle>
       <StyledPlayIcon />
-      <StyledRate>
-        <Star />
-        &nbsp;{rate}
-      </StyledRate>
-      <StyledRelease>{releaseYear}</StyledRelease>
+      {rate && (
+        <StyledRate>
+          <Star />
+          &nbsp;{rate}
+        </StyledRate>
+      )}
+      {release && <StyledRelease>{releaseYear}</StyledRelease>}
     </StyledCard>
   );
 }
@@ -26,8 +28,13 @@ function MovieCard({ title, backgroundImage, rate, release }) {
 MovieCard.propTypes = {
   title: PropTypes.string.isRequired,
   backgroundImage: PropTypes.string.isRequired,
-  rate: PropTypes.number.isRequired,
-  release: PropTypes.string.isRequired,
+  rate: PropTypes.number,
+  release: PropTypes.string,
+};
+
+MovieCard.defaultProps = {
+  rate: undefined,
+  release: undefined,
 };
 
 export default MovieCard;

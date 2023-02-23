@@ -26,11 +26,11 @@ export const getFeaturedMovie = createAsyncThunk(
 
 export const uploadNewMovie = createAsyncThunk(
   'movies/uploadNewMovie',
-  async ({ file, onUploadProgress, fileName }) => {
+  async ({ file, onUploadProgress, title }) => {
     const {
-      data: { url, asset_id: id },
+      data: { url: backdrop500FullPath, asset_id: id },
     } = await MoviesService.uploadFile(file, onUploadProgress);
-    return { url, fileName, id };
+    return { backdrop500FullPath, title, id };
   }
 );
 

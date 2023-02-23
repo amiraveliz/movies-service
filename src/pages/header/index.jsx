@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import Button from '../button';
+import Button from '../../components/button';
 import {
   StyledContainer,
   StyledLogoSection,
@@ -11,8 +11,8 @@ import { ReactComponent as Logo } from '../../assets/images/icons/logo.svg';
 import { ReactComponent as Menu } from '../../assets/images/icons/menu.svg';
 import { ReactComponent as Bell } from '../../assets/images/icons/bell.svg';
 import Profile from '../../assets/images/profile.svg';
-import Modal from '../modal';
-import FileUploader from '../file-uploader';
+import Modal from '../../components/modal';
+import FileUploader from '../../components/file-uploader';
 import { clearUploadError, uploadNewMovie } from '../../slices/movies';
 
 function Header() {
@@ -48,11 +48,9 @@ function Header() {
       uploadNewMovie({
         file: currentFile,
         onUploadProgress,
-        fileName,
+        title: fileName,
       })
-    ).finally(() => {
-      handleClearUploadValues();
-    });
+    );
   };
 
   const handleOnDropFile = (files) => {

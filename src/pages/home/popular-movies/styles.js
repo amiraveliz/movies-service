@@ -13,6 +13,7 @@ export const StyledTitle = styled.span`
   justify-content: center;
   align-items: center;
   padding-bottom: 24px;
+  min-width: 200px;
 `;
 
 export const StyledList = styled.div`

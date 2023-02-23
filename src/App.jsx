@@ -1,4 +1,4 @@
-import Header from './components/header';
+import Header from './pages/header';
 import Home from './pages/home';
 import Theme from './theme';
 

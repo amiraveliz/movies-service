@@ -9,6 +9,7 @@ import PopularMovies from './popular-movies';
 
 function Home() {
   const popularMovies = useSelector((state) => state.movies.popularMovies);
+  const myMovies = useSelector((state) => state.movies.myMovies);
   const { title, backdropFullPath: backgroundImage } = useSelector(
     (state) => state.movies.featuredMovie
   );
@@ -27,7 +28,7 @@ function Home() {
   return (
     <StyledContainer backgroundImage={backgroundImage}>
       <FeaturedDetails title={title} />
-      <PopularMovies movies={popularMovies} />
+      <PopularMovies popular={popularMovies} myMovies={myMovies} />
     </StyledContainer>
   );
 }
