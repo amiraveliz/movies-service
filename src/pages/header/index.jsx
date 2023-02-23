@@ -1,19 +1,13 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Button from '../../components/button';
-import {
-  StyledContainer,
-  StyledLogoSection,
-  StyledMenuSection,
-} from './styles';
+import { StyledContainer, StyledLogoSection } from './styles';
 import { ReactComponent as Plus } from '../../assets/images/icons/plus.svg';
 import { ReactComponent as Logo } from '../../assets/images/icons/logo.svg';
-import { ReactComponent as Menu } from '../../assets/images/icons/menu.svg';
-import { ReactComponent as Bell } from '../../assets/images/icons/bell.svg';
-import Profile from '../../assets/images/profile.svg';
 import Modal from '../../components/modal';
 import FileUploader from '../../components/file-uploader';
 import { clearUploadError, uploadNewMovie } from '../../slices/movies';
+import SidebarMenu from '../../components/sidebar-menu';
 
 function Header() {
   const [showAddMovieModal, setShowAddMovieModal] = useState(false);
@@ -74,14 +68,10 @@ function Header() {
           onClick={toggleShowAddMovieModal}
         />
       </StyledLogoSection>
-      <StyledMenuSection>
-        <Button variant="transparent" icon={Menu} />
-        <Button variant="transparent" icon={Bell} />
-        <img src={Profile} alt="Profile avatar" width="42" height="42" />
-      </StyledMenuSection>
+      <SidebarMenu onClickAddMovie={toggleShowAddMovieModal} />
       <Modal
         visible={showAddMovieModal}
-        title="agregar película"
+        title="Agregar película"
         onHiding={toggleShowAddMovieModal}
       >
         <FileUploader

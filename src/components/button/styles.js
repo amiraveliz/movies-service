@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const commonButtonStyles = css`
-  font-size: 18px;
+  font-size: ${(props) => `${props.fontSize}px`};
   font-family: inherit;
   height: 56px;
   min-width: 248px;

@@ -39,6 +39,7 @@ const GlobalStyle = createGlobalStyle`
     letter-spacing: 4px;
     color: ${(props) => props.theme.text};
     background-color: ${(props) => props.theme.background};
+    overflow-x: hidden;
   }
 
   #root {
