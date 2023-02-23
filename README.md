@@ -1,10 +1,10 @@
 # liteflix
 
-## To install dependencies:
+### Install dependencies:
 
 `yarn install`
 
-## And then run the project:
+### Run the project:
 
 `yarn run dev`
 
