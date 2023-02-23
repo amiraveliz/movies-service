@@ -27,35 +27,33 @@ function PopularList({ popular, myMovies }) {
 
   return (
     <StyledContainer>
-      <div>
-        <StyledTitle>
-          Ver:&nbsp;
-          <Dropdown
-            options={WATCH_OPTIONS}
-            defaultOption={WATCH_OPTIONS[0]}
-            onChange={handleUpdateWatchList}
-          />
-        </StyledTitle>
-        <StyledList>
-          {watchList.map((movie) => {
-            const {
-              title,
-              vote_average: rate,
-              release_date: release,
-              backdrop500FullPath,
-            } = movie;
-            return (
-              <MovieCard
-                key={movie.id}
-                title={title}
-                rate={rate}
-                release={release}
-                backgroundImage={backdrop500FullPath}
-              />
-            );
-          })}
-        </StyledList>
-      </div>
+      <StyledTitle>
+        Ver:&nbsp;
+        <Dropdown
+          options={WATCH_OPTIONS}
+          defaultOption={WATCH_OPTIONS[0]}
+          onChange={handleUpdateWatchList}
+        />
+      </StyledTitle>
+      <StyledList>
+        {watchList.map((movie) => {
+          const {
+            title,
+            vote_average: rate,
+            release_date: release,
+            backdrop500FullPath,
+          } = movie;
+          return (
+            <MovieCard
+              key={movie.id}
+              title={title}
+              rate={rate}
+              release={release}
+              backgroundImage={backdrop500FullPath}
+            />
+          );
+        })}
+      </StyledList>
     </StyledContainer>
   );
 }

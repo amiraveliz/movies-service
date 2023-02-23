@@ -67,7 +67,7 @@ Button.defaultProps = {
   variant: 'primary',
   onClick: () => {},
   disabled: false,
-  fontSize: 18,
+  fontSize: 1.125,
 };
 
 export default Button;

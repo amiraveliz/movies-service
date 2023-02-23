@@ -44,7 +44,7 @@ export const StyledHeader = styled.span`
   width: 100%;
   h2 {
     font-weight: 700;
-    font-size: 20px;
+    font-size: 1.25rem;
     color: ${(props) => props.theme.primary};
     margin: 0;
     text-align: center;
@@ -55,5 +55,5 @@ export const StyledCloseButton = styled.div`
   display: flex;
   justify-content: end;
   width: 100%;
-  height: 45px;
+  height: 2.81rem;
 `;

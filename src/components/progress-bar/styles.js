@@ -6,7 +6,7 @@ export const StyledContainer = styled.div`
   margin: 60px 0;
 
   progress[value] {
-    width: ${(props) => props.width};
+    width: ${(props) => `${props.width}px`};
 
     -webkit-appearance: none;
     appearance: none;

@@ -36,7 +36,7 @@ export const uploadNewMovie = createAsyncThunk(
 
 const initialState = {
   popularMovies: [],
-  myMovies: JSON.parse(localStorage.getItem('myMovies') || '[]'),
+  myMovies: JSON.parse(localStorage.getItem('myMovies') || '[]').slice(0, 4),
   featuredMovie: {},
   isLoading: false,
   uploadError: false,

@@ -29,7 +29,7 @@ export const StyledMenu = styled.nav`
   }
 
   div > span {
-    font-size: 22px;
+    font-size: 1.37rem;
     text-decoration: none;
     transition: color 0.3s linear;
     color: inherit;

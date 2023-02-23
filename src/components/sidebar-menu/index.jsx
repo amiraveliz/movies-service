@@ -2,16 +2,26 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Burger from '../burger';
 import Menu from '../menu';
-import { StyledOverlay, StyledMenuSection } from './styles';
+import {
+  StyledContainer,
+  StyledOverlay,
+  StyledMenuSection,
+  StyledBellContainer,
+  StyledLogoContainer,
+} from './styles';
 import { ReactComponent as Bell } from '../../assets/images/icons/bell.svg';
+import { ReactComponent as Logo } from '../../assets/images/icons/logo.svg';
 import Profile from '../../assets/images/profile.svg';
 import Button from '../button';
 
 function SidebarMenu({ onClickAddMovie }) {
   const [open, setOpen] = useState(false);
   return (
-    <div>
+    <StyledContainer>
       <StyledOverlay isOpen={open} />
+      <StyledLogoContainer>
+        <Logo />
+      </StyledLogoContainer>
       <StyledMenuSection>
         <Burger isOpen={open} setOpen={setOpen} />
         <Menu
@@ -19,10 +29,12 @@ function SidebarMenu({ onClickAddMovie }) {
           setOpen={setOpen}
           onClickAddMovie={onClickAddMovie}
         />
-        <Button variant="transparent" icon={Bell} />
+        <StyledBellContainer>
+          <Button variant="transparent" icon={Bell} />
+        </StyledBellContainer>
         <img src={Profile} alt="Profile avatar" width="42" height="42" />
       </StyledMenuSection>
-    </div>
+    </StyledContainer>
   );
 }
 

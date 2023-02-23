@@ -2,14 +2,8 @@ import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import PropTypes from 'prop-types';
 import BebasNeue400 from './assets/fonts/BebasNeue-400.woff';
 import BebasNeue700 from './assets/fonts/BebasNeue-700.woff';
-
-const THEME = {
-  primary: '#64EEBC',
-  text: '#FFFFFF',
-  background: '#242424',
-  danger: '#FF0000',
-  disabled: '#929292',
-};
+import Colors from './global-styles/colors';
+import Breakpoints from './global-styles/breakpoints';
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -32,6 +26,20 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html {
+    font-size: 100%;
+  }
+  @media only screen and (max-width: ${Breakpoints.screenXs}) {
+    html {
+      font-size: 55%;
+    }
+  }
+  @media only screen and (max-width: ${Breakpoints.screenMd}) {
+    html {
+      font-size: 70%;
+    }
+  }
+
   body {
     min-height: 100vh;
     font-family: 'Bebas Neue', sans-serif;
@@ -49,7 +57,7 @@ const GlobalStyle = createGlobalStyle`
 
 function Theme({ children }) {
   return (
-    <ThemeProvider theme={THEME}>
+    <ThemeProvider theme={Colors}>
       <GlobalStyle />
       {children}
     </ThemeProvider>

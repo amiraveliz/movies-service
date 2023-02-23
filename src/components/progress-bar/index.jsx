@@ -36,14 +36,14 @@ function ProgressBar({ value, max, width, type, onRetry }) {
 ProgressBar.propTypes = {
   value: PropTypes.number.isRequired,
   max: PropTypes.number,
-  width: PropTypes.string,
+  width: PropTypes.number,
   type: PropTypes.oneOf(['success', 'failure']),
   onRetry: PropTypes.func,
 };
 
 ProgressBar.defaultProps = {
   max: 100,
-  width: '250px',
+  width: 250,
   type: 'sucess',
   onRetry: () => {},
 };

@@ -1,7 +1,10 @@
 import styled from 'styled-components';
+import Breakpoints from '../../global-styles/breakpoints';
 
 export const StyledContainer = styled.div`
-  /* position: relative; */
+  @media (max-width: ${Breakpoints.screenMd}) {
+    width: 100%;
+  }
 `;
 
 export const StyledOverlay = styled.span`
@@ -21,5 +24,21 @@ export const StyledMenuSection = styled.div`
   display: flex;
   justify-content: space-between;
   height: fit-content;
-  /* position: relative;*/
+`;
+
+export const StyledBellContainer = styled.div`
+  @media (max-width: ${Breakpoints.screenMd}) {
+    display: none;
+  }
+`;
+
+export const StyledLogoContainer = styled.div`
+  display: none;
+  @media (max-width: ${Breakpoints.screenMd}) {
+    display: block;
+    position: absolute;
+    top: 38px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 `;

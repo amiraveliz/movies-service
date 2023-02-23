@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import PlayMovie from '../../assets/images/icons/play-movie.svg';
 import PlayMovieHover from '../../assets/images/icons/play-movie-hover.svg';
+import Breakpoints from '../../global-styles/breakpoints';
 
 export const StyledTitle = styled.span`
   text-align: center;
@@ -9,6 +10,9 @@ export const StyledTitle = styled.span`
   max-width: 160px;
   margin: 0 auto;
   transition: all 100ms ease-in-out;
+  @media (max-width: ${Breakpoints.screenMd}) {
+    text-align: center;
+  }
 `;
 
 export const StyledRate = styled.span`
@@ -37,6 +41,12 @@ export const StyledPlayIcon = styled.span`
   left: 50%;
   transform: translate(-50%, -50%);
 
+  @media (max-width: ${Breakpoints.screenMd}) {
+    text-align: center;
+    max-width: 100%;
+    top: 43%;
+  }
+
   &:hover {
     background-image: url(${PlayMovieHover});
     cursor: pointer;
@@ -44,6 +54,7 @@ export const StyledPlayIcon = styled.span`
 `;
 
 export const StyledCard = styled.div`
+  font-size: 16px;
   position: relative;
   width: 210px;
   height: 130px;
@@ -73,6 +84,13 @@ export const StyledCard = styled.div`
     max-width: 146px;
     text-align: left;
     transition: all 400ms ease-in-out;
+    @media (max-width: ${Breakpoints.screenMd}) {
+      position: absolute;
+      bottom: 32px;
+      left: 18px;
+      max-width: 300px;
+      transform: initial;
+    }
   }
 
   &:hover ${StyledRelease} {
@@ -86,5 +104,22 @@ export const StyledCard = styled.div`
   &:hover ${StyledPlayIcon} {
     top: 50%;
     left: 32px;
+    @media (max-width: ${Breakpoints.screenMd}) {
+      top: 77%;
+    }
+    @media (max-width: ${Breakpoints.screenSm}) {
+      top: 65%;
+    }
+    @media (max-width: ${Breakpoints.screenXs}) {
+      top: 50%;
+    }
+  }
+
+  @media (max-width: ${Breakpoints.screenMd}) {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 15 / 10;
+    display: flex;
+    align-items: center;
   }
 `;

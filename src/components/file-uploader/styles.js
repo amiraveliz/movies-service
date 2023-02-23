@@ -29,13 +29,13 @@ export const StyledSubmitButton = styled.div`
 `;
 
 export const StyledSuccessTitle = styled.span`
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 700;
   margin-top: 70px;
   margin-bottom: 24px;
 `;
 
 export const StyledSuccessSubtitle = styled.span`
-  font-size: 20px;
+  font-size: 1.25rem;
   margin-bottom: 92px;
 `;

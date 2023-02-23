@@ -27,7 +27,7 @@ function Menu({ isOpen, onClickAddMovie }) {
           text="Agregar película"
           icon={Plus}
           onClick={onClickAddMovie}
-          fontSize={22}
+          fontSize={1.37}
         />
       </div>
       <div>

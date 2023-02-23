@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledInput = styled.input`
-  font-size: 16px;
+  font-size: 1rem;
   font-family: inherit;
   letter-spacing: inherit;
   padding: 10px;

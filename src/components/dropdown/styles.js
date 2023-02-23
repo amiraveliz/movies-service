@@ -12,7 +12,7 @@ export const StyledContainer = styled.div`
 
 export const DropdownHeader = styled.span`
   color: ${(props) => props.theme.text};
-  font-size: 18px;
+  font-size: 1.12rem;
   font-weight: 700;
 `;
 
@@ -35,7 +35,7 @@ export const DropdownList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 16px;
-  font-size: 16px;
+  font-size: 1rem;
   color: ${(props) => props.theme.text};
 `;
 
