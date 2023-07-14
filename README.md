@@ -1,4 +1,4 @@
-# liteflix
+# Moviesflix
 
 ### Install dependencies:
 
