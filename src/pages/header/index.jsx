@@ -3,11 +3,11 @@ import { useDispatch } from 'react-redux';
 import Button from '../../components/button';
 import { StyledContainer, StyledLogoSection } from './styles';
 import { ReactComponent as Plus } from '../../assets/images/icons/plus.svg';
-import { ReactComponent as Logo } from '../../assets/images/icons/logo.svg';
 import Modal from '../../components/modal';
 import FileUploader from '../../components/file-uploader';
 import { clearUploadError, uploadNewMovie } from '../../slices/movies';
 import SidebarMenu from '../../components/sidebar-menu';
+import Logo from '../../components/logo';
 
 function Header() {
   const [showAddMovieModal, setShowAddMovieModal] = useState(false);

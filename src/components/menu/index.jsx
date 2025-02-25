@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import { StyledMenu, StyledOptions, StyledLogoContainer } from './styles';
 import { ReactComponent as Plus } from '../../assets/images/icons/plus.svg';
 import { ReactComponent as Bell } from '../../assets/images/icons/bell.svg';
-import { ReactComponent as Logo } from '../../assets/images/icons/logo.svg';
 import Profile from '../../assets/images/profile.svg';
 import Button from '../button';
+import Logo from '../logo';
 
 function Menu({ isOpen, onClickAddMovie }) {
   return (

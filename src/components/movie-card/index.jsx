@@ -12,8 +12,8 @@ function MovieCard({ title, backgroundImage, rate, release }) {
   const releaseYear = new Date(release).getFullYear().toString();
   return (
     <StyledCard backgroundImage={backgroundImage}>
-      <StyledTitle>{title}</StyledTitle>
       <StyledPlayIcon />
+      <StyledTitle>{title}</StyledTitle>
       {rate && (
         <StyledRate>
           <Star />

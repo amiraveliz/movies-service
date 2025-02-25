@@ -1,25 +1,9 @@
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import PropTypes from 'prop-types';
-import BebasNeue400 from './assets/fonts/BebasNeue-400.woff';
-import BebasNeue700 from './assets/fonts/BebasNeue-700.woff';
 import Colors from './global-styles/colors';
 import Breakpoints from './global-styles/breakpoints';
 
 const GlobalStyle = createGlobalStyle`
-  @font-face {
-    font-family: 'Bebas Neue';
-    src: url(${BebasNeue400}) format('woff');
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'Bebas Neue';
-    src: url(${BebasNeue700}) format('woff');
-    font-weight: 700;
-    font-style: normal;
-  }
-
   * {
     margin: 0;
     padding: 0;
@@ -42,8 +26,9 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     min-height: 100vh;
-    font-family: 'Bebas Neue', sans-serif;
-    font-weight: 400;
+    font-family: 'Oswald', serif;
+    font-weight: 200;
+    font-style: normal;
     letter-spacing: 4px;
     color: ${(props) => props.theme.text};
     background-color: ${(props) => props.theme.background};

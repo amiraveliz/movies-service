@@ -14,7 +14,7 @@ function FeaturedDetails({ title }) {
   return (
     <StyledContainer>
       <StyledSubtitle>
-        ORIGINAL DE<span>&nbsp;LITEFLIX</span>
+        ORIGINAL DE<span>&nbsp;ASTRAL CINE</span>
       </StyledSubtitle>
       <StyledTitle>{title}</StyledTitle>
       <StyledActions>

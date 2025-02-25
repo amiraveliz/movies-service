@@ -6,13 +6,12 @@ import Breakpoints from '../../global-styles/breakpoints';
 export const StyledTitle = styled.span`
   text-align: center;
   display: block;
-  padding-top: 95px;
-  max-width: 160px;
+  padding-top: 90px;
+  min-width: 160px;
+  width: 160px;
   margin: 0 auto;
-  transition: all 100ms ease-in-out;
-  @media (max-width: ${Breakpoints.screenMd}) {
-    text-align: center;
-  }
+  transition: all 500ms ease-in-out;
+  font-size: 11px;
 `;
 
 export const StyledRate = styled.span`
@@ -40,12 +39,7 @@ export const StyledPlayIcon = styled.span`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  @media (max-width: ${Breakpoints.screenMd}) {
-    text-align: center;
-    max-width: 100%;
-    top: 43%;
-  }
+  transition: all 500ms ease-in-out;
 
   &:hover {
     background-image: url(${PlayMovieHover});
@@ -95,16 +89,17 @@ export const StyledCard = styled.div`
   }
 
   &:hover ${StyledTitle} {
-    transform: translate(20%, -32%);
+    transform: translate(23%, -32%);
     max-width: 146px;
     text-align: left;
     transition: all 400ms ease-in-out;
     @media (max-width: ${Breakpoints.screenMd}) {
+      transform: translate(50%, -50%);
       position: absolute;
-      bottom: 32px;
-      left: 18px;
-      max-width: 300px;
-      transform: initial;
+      width: 170px;
+      min-width: 170px;
+      padding-top: 0;
+      top: 50%;
     }
   }
 
@@ -120,13 +115,8 @@ export const StyledCard = styled.div`
     top: 50%;
     left: 32px;
     @media (max-width: ${Breakpoints.screenMd}) {
-      top: 77%;
-    }
-    @media (max-width: ${Breakpoints.screenSm}) {
-      top: 65%;
-    }
-    @media (max-width: ${Breakpoints.screenXs}) {
       top: 50%;
+      left: 32px;
     }
   }
 
@@ -136,5 +126,6 @@ export const StyledCard = styled.div`
     aspect-ratio: 15 / 10;
     display: flex;
     align-items: center;
+    max-width: 500px;
   }
 `;

@@ -10,9 +10,9 @@ import {
   StyledLogoContainer,
 } from './styles';
 import { ReactComponent as Bell } from '../../assets/images/icons/bell.svg';
-import { ReactComponent as Logo } from '../../assets/images/icons/logo.svg';
 import Profile from '../../assets/images/profile.svg';
 import Button from '../button';
+import Logo from '../logo';
 
 function SidebarMenu({ onClickAddMovie }) {
   const [open, setOpen] = useState(false);
