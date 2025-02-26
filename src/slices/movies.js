@@ -20,7 +20,7 @@ export const getFeaturedMovie = createAsyncThunk(
     const {
       data: { results },
     } = await MoviesService.getFeatured();
-    return results[0]; // get only first movie
+    return results[3]; // get only first movie
   }
 );
 

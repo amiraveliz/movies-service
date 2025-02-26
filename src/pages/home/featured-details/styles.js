@@ -29,6 +29,8 @@ export const StyledTitle = styled.div`
   letter-spacing: 16px;
   margin-bottom: 32px;
   animation: slide-up 6s forwards;
+  line-height: 110px;
+  text-shadow: #4a4a4aa3 1px 0 10px;
   @keyframes slide-up {
     0% {
       transform: translateY(100%);
@@ -39,6 +41,7 @@ export const StyledTitle = styled.div`
   }
   @media (max-width: ${Breakpoints.screenMd}) {
     text-align: center;
+    line-height: 80px;
   }
 `;
 
